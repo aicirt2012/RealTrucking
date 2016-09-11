@@ -1,0 +1,221 @@
+.simulation-button {
+  background: #e40045;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50px;
+  transition: background 1s;
+  position: absolute;
+  top: 57%;
+  left: 20px;
+  color: white;
+  z-index: 5000;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  background-size: contain;
+  background-position: center center;
+  border: 5px solid white;
+  font-size: 38px;
+  font-weight: bold; }
+  .simulation-button:hover {
+    background: #e40045; }
+  .simulation-button i {
+    margin-left: 8px;
+    margin-top: 10px; }
+    .simulation-button i.fa-stop {
+      margin-left: 0px; }
+
+.dashboard-wrapper {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .dashboard-wrapper .item-1 {
+    flex: 1;
+    margin: 0 auto; }
+  .dashboard-wrapper .item-2 {
+    flex: 2; }
+
+#acc-line {
+  background: #303c49;
+  transition: width 1s; }
+
+#break-line {
+  background: #303c49;
+  transition: width 1s; }
+
+/** Value Dashboard **/
+.raw-value-wrapper {
+  text-align: center; }
+  .raw-value-wrapper .raw-value {
+    font-size: 90px;
+    font-weight: bold;
+    color: #303c49; }
+  .raw-value-wrapper .description .title {
+    font-size: 20px;
+    color: #303c49;
+    font-weight: bold; }
+  .raw-value-wrapper .description .unit {
+    color: #acb1b6;
+    font-weight: bold; }
+
+.bar-value-wrapper .title {
+  display: inline-block;
+  color: #303c49;
+  font-weight: bold;
+  font-size: 20px; }
+
+.bar-value-wrapper .unit {
+  display: inline-block;
+  color: #acb1b6; }
+
+.spacer-bars {
+  height: 50px; }
+
+.computer-wrapper {
+  display: flex;
+  /* or inline-flex */
+  justify-content: center;
+  padding-top: 2.5em; }
+  .computer-wrapper .side-bars {
+    width: 110px;
+    height: 100%; }
+  .computer-wrapper .display {
+    border: 10px solid #acb1b6;
+    width: 50%;
+    margin-left: 2em;
+    margin-right: 2em;
+    box-shadow: 0 0 5px black;
+    background: #16222A;
+    background: -webkit-linear-gradient(to left, #16222A, #3A6073);
+    background: linear-gradient(to left, #16222A, #3A6073); }
+    .computer-wrapper .display .top-bar {
+      background: #fff;
+      border-bottom: 2px solid #e40045;
+      height: 50px;
+      display: flex;
+      justify-content: space-between; }
+      .computer-wrapper .display .top-bar .man-logo {
+        margin-left: 20px; }
+      .computer-wrapper .display .top-bar .title {
+        color: #303c49;
+        font-weight: bolder;
+        font-size: 18px;
+        padding-left: 20px; }
+      .computer-wrapper .display .top-bar .buttons-left, .computer-wrapper .display .top-bar .buttons-right {
+        display: flex;
+        justify-content: center;
+        line-height: 100%; }
+        .computer-wrapper .display .top-bar .buttons-left .money-count, .computer-wrapper .display .top-bar .buttons-right .money-count {
+          background: #e40045;
+          font-weight: bolder;
+          padding: 18px;
+          height: 100%;
+          text-align: center;
+          height: 100%;
+          margin-right: 20px; }
+        .computer-wrapper .display .top-bar .buttons-left .item, .computer-wrapper .display .top-bar .buttons-right .item {
+          align-self: center; }
+          .computer-wrapper .display .top-bar .buttons-left .item .cog, .computer-wrapper .display .top-bar .buttons-right .item .cog {
+            padding-right: 20px; }
+          .computer-wrapper .display .top-bar .buttons-left .item .qmark, .computer-wrapper .display .top-bar .buttons-right .item .qmark {
+            padding-right: 20px; }
+    .computer-wrapper .display .content {
+      display: flex;
+      /* or inline-flex */
+      justify-content: center;
+      align-items: center;
+      height: 89.5%; }
+      .computer-wrapper .display .content .trucker {
+        padding-left: 80px;
+        padding-right: 30px;
+        flex: 1;
+        align-self: flex-end;
+        text-align: center; }
+        .computer-wrapper .display .content .trucker .trucker-x {
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px; }
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0); } }
+        .computer-wrapper .display .content .trucker .meta .value {
+          font-weight: bold;
+          color: white;
+          font-size: 52px; }
+        .computer-wrapper .display .content .trucker .meta .title {
+          padding-top: 10px;
+          font-weight: bold;
+          color: white;
+          text-align: center; }
+      .computer-wrapper .display .content .flex-1 {
+        flex: 1; }
+      .computer-wrapper .display .content .flex-2 {
+        flex: 2; }
+      .computer-wrapper .display .content .data-items {
+        flex: 4; }
+        .computer-wrapper .display .content .data-items.flex-3 {
+          flex: 1; }
+        .computer-wrapper .display .content .data-items .button {
+          background: #e40045;
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          right: 20px;
+          bottom: 5px;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-radius: 5px; }
+        .computer-wrapper .display .content .data-items .driver-value-wrapper .title {
+          font-size: 24px;
+          color: #acb1b6;
+          font-weight: bolder; }
+        .computer-wrapper .display .content .data-items .driver-value-wrapper .value {
+          display: inline-block;
+          font-weight: bolder;
+          font-size: 52px; }
+        .computer-wrapper .display .content .data-items .driver-value-wrapper .unit {
+          display: inline-block;
+          font-weight: 300;
+          color: #acb1b6;
+          padding-left: 0.6em; }
+        .computer-wrapper .display .content .data-items .spacer {
+          height: 25px; }
+        .computer-wrapper .display .content .data-items .success-message {
+          font-size: 38px;
+          font-weight: bolder; }
+        .computer-wrapper .display .content .data-items .scoreboard .spacer {
+          height: 20px; }
+        .computer-wrapper .display .content .data-items .scoreboard .title {
+          font-size: 20px;
+          color: #acb1b6; }
+        .computer-wrapper .display .content .data-items .scoreboard .trucker-item {
+          position: relative; }
+          .computer-wrapper .display .content .data-items .scoreboard .trucker-item img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 5px; }
+          .computer-wrapper .display .content .data-items .scoreboard .trucker-item .trucker-data {
+            display: inline-block;
+            padding-left: 70px; }
+            .computer-wrapper .display .content .data-items .scoreboard .trucker-item .trucker-data .title {
+              color: #acb1b6; }
+            .computer-wrapper .display .content .data-items .scoreboard .trucker-item .trucker-data .name {
+              font-weight: bold;
+              font-size: 28px; }
+            .computer-wrapper .display .content .data-items .scoreboard .trucker-item .trucker-data .score {
+              color: #acb1b6; }
+
+.map-wrapper .map {
+  max-height: 150px; }

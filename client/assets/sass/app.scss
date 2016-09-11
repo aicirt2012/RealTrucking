@@ -1,0 +1,376 @@
+// Variables
+$man_gray:#303c49;
+$man_red: #e40045;
+$light_gray:#acb1b6;
+
+// fade classes
+.fade-out {}
+
+.simulation-button {
+  background: $man_red;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50px;
+  transition: background 1s;
+  position: absolute;
+  top: 57%;
+  left: 20px;
+  color:white;
+  z-index: 5000;
+  box-shadow: 0 0 8px rgba(0,0,0, 0.7);
+  //background: url(https://image.freepik.com/free-icon/play-button_318-42541.png);
+  background-size: contain;
+  background-position: center center;
+  border: 5px solid white;
+  font-size: 38px;
+  font-weight: bold;
+
+
+  &:hover {
+    background: $man_red;
+  }
+
+  i {
+    margin-left: 8px;
+    margin-top: 10px;
+
+    &.fa-stop {
+      margin-left: 0px;
+    }
+  }
+
+
+
+}
+
+// Dashboard Wrapper
+
+.dashboard-wrapper {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .item-1 {
+    flex: 1;
+    margin: 0 auto;
+  }
+
+  .item-2 {
+    flex: 2
+  }
+}
+
+#acc-line {
+  background: $man_gray;
+  transition: width 1s;
+}
+
+#break-line {
+  background: $man_gray;
+  transition: width 1s;
+}
+
+/** Value Dashboard **/
+
+.raw-value-wrapper {
+  text-align: center;
+
+
+  .raw-value {
+    font-size: 90px;
+    font-weight: bold;
+    color: $man_gray;
+  }
+
+  .description {
+    .title {
+      font-size: 20px;
+      color: $man_gray;
+      font-weight: bold;
+    }
+
+    .unit {
+      color: $light_gray;
+      font-weight: bold;
+    }
+
+  }
+}
+
+.bar-value-wrapper {
+  .title {
+    display: inline-block;
+    color:$man_gray;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .unit {
+    display: inline-block;
+    color:$light_gray;
+  }
+}
+
+.spacer-bars {
+  height: 50px;
+}
+
+
+.computer-wrapper {
+  display: flex; /* or inline-flex */
+  justify-content:  center;
+  //align-items: center;
+  padding-top: 2.5em;
+
+  .side-bars {
+    width: 110px;
+    height: 100%;
+    //visibility: hidden;
+  }
+
+  .display {
+    border: 10px solid $light_gray;
+    width: 50%;
+    margin-left: 2em;
+    margin-right: 2em;
+    box-shadow: 0 0 5px black;
+
+    background: #16222A;
+    background: -webkit-linear-gradient(to left, #16222A , #3A6073);
+    background: linear-gradient(to left, #16222A , #3A6073);
+
+    .top-bar {
+      background: #fff;
+      border-bottom: 2px solid $man_red;
+      height: 50px;
+      display: flex;
+      justify-content:space-between;
+
+      .man-logo {
+        margin-left: 20px;
+      }
+
+      .title {
+        color:$man_gray;
+        font-weight: bolder;
+        font-size: 18px;
+        padding-left: 20px;
+      }
+
+      .buttons-left, .buttons-right {
+        display: flex;
+        justify-content: center;
+        line-height: 100%;
+
+        .money-count {
+           background: $man_red;
+           font-weight: bolder;
+           padding: 18px;
+           height: 100%;
+           text-align: center;
+           height: 100%;
+           margin-right: 20px;
+        }
+
+        .item {
+          align-self: center;
+
+          .cog {
+            padding-right: 20px;
+          }
+
+          .qmark {
+            padding-right: 20px;
+          }
+
+        }
+      }
+    }
+
+    .content {
+      display: flex; /* or inline-flex */
+      justify-content:  center;
+      align-items: center;
+      height: 89.5%;
+
+      .trucker {
+        padding-left: 80px;
+        padding-right: 30px;
+        flex: 1;
+        align-self: flex-end;
+        text-align: center;
+
+        .trucker-x {
+          animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+
+        @keyframes shake {
+          10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+          }
+
+          20%, 80% {
+            transform: translate3d(2px, 0, 0);
+          }
+
+          30%, 50%, 70% {
+            transform: translate3d(-4px, 0, 0);
+          }
+
+          40%, 60% {
+            transform: translate3d(4px, 0, 0);
+          }
+        }
+
+        .meta {
+
+          .value {
+            font-weight: bold;
+            color: white;
+            font-size: 52px;
+          }
+
+          .title {
+            padding-top: 10px;
+            font-weight: bold;
+            color:white;
+            text-align: center;
+          }
+
+        }
+
+      }
+
+      .flex-1 {
+        flex: 1;
+      }
+
+      .flex-2 {
+        flex: 2;
+      }
+
+      .data-items {
+        flex: 4;
+
+        &.flex-3 {
+          flex: 1;
+        }
+
+        .button {
+          background: $man_red;
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          right:20px;
+          bottom: 5px;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-radius: 5px;
+        }
+
+        .driver-value-wrapper {
+          .title {
+            font-size: 24px;
+            color: $light_gray;
+            font-weight: bolder;
+          }
+
+          .value {
+            display: inline-block;
+            font-weight: bolder;
+            font-size: 52px;
+          }
+
+          .unit {
+            display: inline-block;
+            font-weight: 300;
+            color:$light_gray;
+            padding-left: 0.6em;
+          }
+
+
+        }
+
+        .spacer {
+          height: 25px;
+        }
+
+        // Success screen
+        .success-message {
+          font-size: 38px;
+          font-weight: bolder;
+        }
+
+        .scoreboard {
+
+          .spacer {
+            height: 20px;
+          }
+
+          .title {
+            font-size: 20px;
+            color:$light_gray;
+          }
+
+          .trucker-item {
+
+            position: relative;
+
+            img {
+              width: 50px;
+              height: 50px;
+              position: absolute;
+              top: 5px;
+            }
+
+            .trucker-data {
+
+              display: inline-block;
+
+              padding-left: 70px;
+
+
+              .title {
+                color:$light_gray;
+              }
+
+              .name {
+                font-weight: bold;
+                font-size: 28px;
+              }
+
+              .score {
+                color:$light_gray;
+              }
+
+            }
+          }
+
+
+
+        }
+
+      }
+
+    }
+
+  }
+}
+
+
+.map-wrapper {
+
+  .map {
+    max-height: 150px;
+  }
+
+
+}

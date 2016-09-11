@@ -1,0 +1,366 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="manTruckScore">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>RealTrucking</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+
+        
+    </head>
+    <body ng-controller="StartController">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="container">
+            <div id="top_div" ng-class="putDown ? 'x30' : ''">
+                <div ng-if="isDriving" class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="computer-wrapper">
+                            <img src="assets/images/control.png" class="side-bars">
+                            <div class="display">
+                                <div class="top-bar">
+                                    <div class="buttons-right">
+                                        <div class="item">
+                                            <img src="assets/images/man-logo.png" class="man-logo" width="65">
+                                        </div>
+                                        <div class="item">
+                                            <div class="title">
+                                                EcoScore
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                    <div class="buttons-left">
+                                        <div class="item">
+                                            <div class="money-count">23€</div>
+                                        </div>
+                                        <div class="item" style="transform: rotate(30deg)">
+                                            <img src="assets/images/cog.png" width="50" class="cog">
+                                        </div>
+                                    </div>
+
+                                </div>        
+                                <div class="content">
+                                    <div class="trucker item">
+                                        <div class="meta">
+                                            <div class="value">
+                                                <span ng-if="data.driver.score">{{data.driver.score | number:0}}</span>
+                                                <span ng-if="!data.driver.score">N.A.</span>
+                                            </div>
+                                        </div>
+                                        <img src="{{data.driver.scoreicon}}" width="156" class="trucker-x">
+                                    </div>
+
+                                    <div class="flex-2"></div>
+
+                                    <div class="data-items item">
+
+                                        <div class="driver-value-wrapper">
+                                            <div class="title">Fuel Consumption</div>
+                                            <div class="data">
+                                                <div class="value">
+                                                    <span ng-if="data.driver.consumption">{{data.driver.consumption | number:1}}</span>
+                                                    <span ng-if="!data.driver.consumption">N.A.</span>
+                                                </div>
+                                                <div class="unit">(l / t / kg)</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="spacer"></div>
+
+                                        <div class="driver-value-wrapper">
+                                            <div class="title">Overspeed</div>
+                                            <div class="data">
+                                                <div class="value">
+                                                    <span ng-if="data.driver.overspeed !== undefined">{{data.driver.overspeed}}</span>
+                                                    <span ng-if="data.driver.overspeed === undefined">N.A.</span>
+                                                </div>
+                                                <div class="unit">(0/1)</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="spacer"></div>
+
+                                        <div class="driver-value-wrapper">
+                                            <div class="title">Deceleration</div>
+                                            <div class="data">
+                                                <div class="value">
+                                                    <span ng-if="data.driver.break !== undefined">{{data.driver.break*100 | number:1}}</span>
+                                                    <span ng-if="data.driver.break === undefined">N.A.</span>
+                                                </div>
+                                                <div class="unit">(% of decelerated km)</div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                                                      
+                                </div>
+                            </div>                            
+                            <img src="assets/images/control.png" class="side-bars"> 
+                        </div>
+                    </div>
+                </div> <!-- container-fluid -->
+
+
+            <!-- start success screen -->
+            <div ng-if="!isDriving" class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="computer-wrapper">
+                            <img src="assets/images/control.png" class="side-bars">
+                            <div class="display">
+                                <div class="top-bar">
+                                    <div class="buttons-right">
+                                        <div class="item">
+                                            <img src="assets/images/man-logo.png" class="man-logo" width="65">
+                                        </div>
+                                        <div class="item">
+                                            <div class="title">
+                                                EcoScore
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div></div>
+                                    <div class="buttons-left">
+                                        <div class="item">
+                                            <div class="money-count">23€</div>
+                                        </div>
+                                        <div class="item">
+                                            <img src="assets/images/cog.png" width="50" class="cog">
+                                        </div>
+                                    </div>
+
+                                </div>        
+                                <div class="content">
+                                    <div class="trucker item">
+                                        <div class="meta">
+                                            <div class="value">
+                                                91
+                                            </div>
+                                        </div>
+                                        <img src="assets/images/truckboy.png" width="156">
+                                    </div>
+
+                                    
+
+                                    <div class="data-items flex-1 item" style="padding-left: 40px; position: relative">
+
+                                        <div class="button">How to improve</div>
+
+                                        <div class="success-message">
+                                            Well done, <br>
+                                            you are a real trucker
+                                        </div>
+
+                                        <div class="spacer"></div>
+                
+
+                                        <div class="scoreboard">
+                                            <div class="title">These truckers scored better than you</div>
+                                            <div class="spacer"></div>
+
+                                            <div class="trucker-item">
+                                                <img src="assets/images/trucker1.png">
+                                                <div class="trucker-data">
+                                                    <div class="name">
+                                                        Joseph Dorn
+                                                    </div>
+                                                    <div class="score">
+                                                        100 Points
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="spacer"></div>
+
+                                            <div class="trucker-item">
+                                                <img src="assets/images/trucker2.png">
+                                                <div class="trucker-data">
+                                                    <div class="name">
+                                                        Mike Borst
+                                                    </div>
+                                                    <div class="score">
+                                                        96 Points
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="spacer"></div>
+
+                                            <div class="trucker-item">
+                                                <img src="assets/images/trucker3.png">
+                                                <div class="trucker-data">
+                                                    <div class="name">
+                                                        Clarke Hammer
+                                                    </div>
+                                                    <div class="score">
+                                                        92 Points
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+
+
+
+                                        </div>
+
+
+                                    </div>
+                                                                      
+                                </div>
+                            </div>                            
+                            <img src="assets/images/control.png" class="side-bars"> 
+                        </div>
+                    </div>
+                </div> <!-- container-fluid -->
+                <!-- end start success screen -->
+
+
+                
+            </div>    
+
+                <button class="simulation-button" ng-if="!simulationStarted" ng-click="startSimulation()"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <button class="simulation-button" ng-if="simulationStarted" ng-click="stopSimulation()"><i class="fa fa-stop" aria-hidden="true"></i></button>
+
+            <div id="bottom_div" ng-if="showAll" ng-class="putDown ? 'x70' : ''">
+                
+
+                <div class="dashboard-wrapper">
+                <!--<div class="container-fluidx">-->
+                   <!-- <div class="row"> -->
+
+                      <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div class="raw-value">
+                                    <span ng-if="data.admin.speed">{{data.admin.speed | number:0}}</span>
+                                    <span ng-if="!data.admin.speed">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        Speed
+                                    </div>
+                                    <div class="unit">
+                                        (km/h)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+
+
+                      <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div  class="raw-value">
+                                    <span ng-if="data.admin.cc !== undefined">{{data.admin.cc | number:0}}</span>
+                                    <span ng-if="data.admin.cc === undefined">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        Cruise Control
+                                    </div>
+                                    <div class="unit">
+                                        (0/1)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+
+
+                      <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div class="raw-value">
+                                    <span ng-if="data.admin.alt">{{data.admin.alt | number:0}}</span>
+                                    <span ng-if="!data.admin.alt">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        GPS Altitude
+                                    </div>
+                                    <div class="unit">
+                                        (m)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+
+
+                      <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div class="raw-value">
+                                    <span ng-if="data.admin.weight">{{data.admin.weight/1000 | number:0}}</span>
+                                    <span ng-if="!data.admin.weight">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        Weight
+                                    </div>
+                                    <div class="unit">
+                                        (t)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>      
+
+
+                       <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div class="raw-value">
+                                    <span ng-if="data.admin.tdistance">{{data.admin.tdistance/1000 | number:1}}</span>
+                                    <span ng-if="!data.admin.tdistance">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        Distance
+                                    </div>
+                                    <div class="unit">
+                                        (km)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>                                       
+
+
+                       <div class="col-md-2x item-1">
+                            <div class="raw-value-wrapper">
+                                <div class="raw-value">
+                                    <span ng-if="data.admin.break !== false">{{data.admin.break}}</span>
+                                    <span ng-if="data.admin.break === undefined">N.A.</span>
+                                </div>
+                                <div class="description">
+                                    <div class="title">
+                                        Break
+                                    </div>
+                                    <div class="unit">
+                                        (0/1)
+                                    </div>
+                                </div>
+                            </div>
+                       </div>      
+
+           </div>
+        </div>
+
+
+        </div>
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/controller/home.js"></script>
+
+    </body>
+</html>

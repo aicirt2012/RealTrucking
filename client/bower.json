@@ -1,0 +1,25 @@
+{
+  "name": "techfest-app",
+  "main": "index.html",
+  "description": "",
+  "moduleType": [],
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.6",
+    "angular-animate": "~1.3.6"
+  },
+  "resolutions": {
+    "angular": "1.5.3",
+    "angular-animate": "^1.4.8",
+    "moment": "~2.10.6"
+  }
+}
